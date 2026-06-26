@@ -1,14 +1,30 @@
-import {
-  PuzzleDifficulty,
-  ScoreRequest,
-  ScoreResponse,
-  LeaderboardEntry,
-  LeaderboardResponse,
-} from '@init-sudoku-post3/contracts';
+import { PuzzleDifficulty } from '@init-sudoku-post3/contracts';
 
-// Re-export types for convenience within the scores-service package.
+/**
+ * Local type definitions for the scores service. These mirror the shared contract
+ * types but are defined here to keep the service self‑contained and to allow
+ * future extensions without modifying the contracts package.
+ */
+
+export interface Score {
+  playerName: string;
+  difficulty: PuzzleDifficulty;
+  timeToSolve: number;
+}
+
+export type ScoreRequest = Score;
+
+export interface ScoreResponse {
+  id: string;
+}
+
+export interface LeaderboardEntry {
+  playerName: string;
+  timeToSolve: number;
+}
+
+export interface LeaderboardResponse {
+  entries: LeaderboardEntry[];
+}
+
 export type { PuzzleDifficulty };
-export type ScoreInput = ScoreRequest;
-export type ScoreOutput = ScoreResponse;
-export type { LeaderboardEntry };
-export type { LeaderboardResponse };

@@ -12,7 +12,8 @@ router.get('/leaderboard', (req, res) => {
     if (!difficulty || !['easy', 'medium', 'hard'].includes(difficulty)) {
         return res.status(400).json({ error: 'Invalid or missing difficulty parameter' });
     }
-    const entries = (0, storage_1.getTopScores)(difficulty);
+    const diff = difficulty;
+    const entries = (0, storage_1.getTopScores)(diff);
     const response = { entries };
     res.json(response);
 });

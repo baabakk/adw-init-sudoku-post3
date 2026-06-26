@@ -6,18 +6,23 @@ const database_1 = require("./database");
 const uuid_1 = require("uuid");
 /**
  * Inserts a new score record into the database.
- * @param score The score data to insert.
- * @returns The generated id of the inserted record.
+ * Accepts either a fully typed ScoreRequest or a loosely typed object with string difficulty.
  */
 function insertScore(score) {
+    // Cast to ScoreRequest after runtime validation (basic)
+    const validatedScore = {
+        playerName: score.playerName,
+        difficulty: score.difficulty,
+        timeToSolve: score.timeToSolve,
+    };
     const id = (0, uuid_1.v4)();
     const stmt = database_1.db.prepare(`INSERT INTO scores (id, playerName, difficulty, timeToSolve, createdAt)
      VALUES (@id, @playerName, @difficulty, @timeToSolve, @createdAt)`);
     stmt.run({
         id,
-        playerName: score.playerName,
-        difficulty: score.difficulty,
-        timeToSolve: score.timeToSolve,
+        playerName: validatedScore.playerName,
+        difficulty: validatedScore.difficulty,
+        timeToSolve: validatedScore.timeToSolve,
         createdAt: new Date().toISOString(),
     });
     return id;

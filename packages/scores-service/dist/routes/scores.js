@@ -17,6 +17,7 @@ router.post('/scores', (req, res) => {
     }
     const score = {
         playerName: body.playerName,
+        // Cast after validation
         difficulty: body.difficulty,
         timeToSolve: body.timeToSolve,
     };

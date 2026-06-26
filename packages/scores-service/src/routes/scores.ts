@@ -10,7 +10,8 @@ const router = Router();
  */
 router.post('/scores', (req: Request, res: Response) => {
   const body = req.body as Partial<ScoreRequest>;
-  // Basic validation
+
+  // Basic validation of required fields
   if (
     typeof body.playerName !== 'string' ||
     typeof body.difficulty !== 'string' ||
@@ -19,9 +20,14 @@ router.post('/scores', (req: Request, res: Response) => {
     return res.status(400).json({ error: 'Invalid request payload' });
   }
 
+  // Validate difficulty value against allowed enum
+  const allowed: PuzzleDifficulty[] = ['easy', 'medium', 'hard'];
+  if (!allowed.includes(body.difficulty as PuzzleDifficulty)) {
+    return res.status(400).json({ error: 'Invalid difficulty value' });
+  }
+
   const score: ScoreRequest = {
     playerName: body.playerName,
-    // Cast after validation
     difficulty: body.difficulty as PuzzleDifficulty,
     timeToSolve: body.timeToSolve,
   };

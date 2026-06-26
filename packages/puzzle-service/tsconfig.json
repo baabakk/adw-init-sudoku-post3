@@ -1,18 +1,16 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "composite": true,
     "outDir": "dist",
     "rootDir": "src",
+    "composite": true,
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "strict": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext"
+    "target": "ES2022",
+    "module": "CommonJS"
   },
-  "references": [
-    {
-      "path": "../contracts"
-    }
-  ],
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

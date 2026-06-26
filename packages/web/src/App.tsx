@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import SudokuBoard from './components/SudokuBoard';
-import Leaderboard from './components/Leaderboard';
-import { useSudoku } from './hooks/useSudoku';
+import SudokuBoard from './components/SudokuBoard.js';
+import Leaderboard from './components/Leaderboard.js';
+import { useSudoku } from './hooks/useSudoku.js';
 import styles from './styles/app.module.css';
 
 const App: React.FC = () => {

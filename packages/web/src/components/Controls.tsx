@@ -1,6 +1,6 @@
 import React from 'react';
 import { PuzzleDifficulty } from '@init-sudoku-post3/contracts';
-import styles from '../styles/controls.module.css';
+import styles from './Controls.module.css';
 
 interface ControlsProps {
   difficulty: PuzzleDifficulty;

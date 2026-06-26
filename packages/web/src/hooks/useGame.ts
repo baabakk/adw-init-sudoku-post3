@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { PuzzleDifficulty, ScoreRequest, LeaderboardEntry } from '@init-sudoku-post3/contracts';
-import { usePuzzleService } from './usePuzzleService';
-import { useScoresService } from './useScoresService';
-import { isValidMove } from '../utils/validation';
+import { usePuzzleService } from './usePuzzleService.js';
+import { useScoresService } from './useScoresService.js';
+import { isValidMove } from '../utils/validation.js';
 
 /**
  * Custom hook that encapsulates the entire game lifecycle.

@@ -1,5 +1,5 @@
 import React from 'react';
-import Cell from './Cell';
+import Cell from './Cell.js';
 import styles from '../styles/board.module.css';
 
 interface BoardProps {
@@ -26,7 +26,7 @@ const Board: React.FC<BoardProps> = ({ board, onCellChange, disabled }) => {
             <Cell
               key={cIdx}
               value={cell}
-              onChange={(v) => handleChange(rIdx, cIdx, v)}
+              onChange={(v: string) => handleChange(rIdx, cIdx, v)}
               disabled={disabled}
             />
           ))}

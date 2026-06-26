@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/board.module.css';
+import styles from './Cell.module.css';
 
 interface CellProps {
   value: number; // 0 means empty

@@ -1,5 +1,5 @@
 import { PuzzleDifficulty, PuzzleResponse, ValidateResponse } from '@init-sudoku-post3/contracts';
-import { apiPost, apiGet } from '../utils/api';
+import { apiPost, apiGet } from '../utils/api.js';
 
 /**
  * Hook providing functions to interact with the Puzzle Service.

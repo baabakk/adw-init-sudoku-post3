@@ -6,9 +6,9 @@ import type {
   PuzzleResponse,
   ValidateResponse,
 } from '@init-sudoku-post3/contracts';
-import { puzzleService } from '../services/puzzleService';
-import { scoresService } from '../services/scoresService';
-import { isValidMove } from '../utils/validation';
+import { puzzleService } from '../services/puzzleService.js';
+import { scoresService } from '../services/scoresService.js';
+import { isValidMove } from '../utils/validation.js';
 
 /**
  * Custom hook that encapsulates the Sudoku game lifecycle.

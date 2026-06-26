@@ -1,0 +1,19 @@
+/* Leaderboard.module.css */
+.leaderboard {
+  margin-top: 20px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard th,
+.leaderboard td {
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  text-align: left;
+}

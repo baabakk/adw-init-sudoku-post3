@@ -5,14 +5,22 @@
     "rootDir": "src",
     "strict": true,
     "module": "NodeNext",
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+      "@init-sudoku-post3/contracts": ["../contracts/src/index"]
+    },
+    "lib": ["DOM", "DOM.Iterable", "ES2022"]
   },
   "references": [
     {
       "path": "../contracts"
     }
   ],
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

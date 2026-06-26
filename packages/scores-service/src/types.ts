@@ -10,5 +10,5 @@ import {
 export type { PuzzleDifficulty };
 export type ScoreInput = ScoreRequest;
 export type ScoreOutput = ScoreResponse;
-export type LeaderboardEntry;
-export type LeaderboardResponse;
+export type { LeaderboardEntry };
+export type { LeaderboardResponse };

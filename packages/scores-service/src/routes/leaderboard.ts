@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { getTopScores } from '../db/scores-repository';
+import { getTopScores } from '../storage';
 import type { LeaderboardResponse, LeaderboardEntry } from '@init-sudoku-post3/contracts';
 
 const router = Router();

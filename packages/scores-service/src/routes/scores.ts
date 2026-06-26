@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import { insertScore } from '../db/scores-repository';
+import { addScore } from '../storage';
 import type { ScoreRequest, ScoreResponse } from '@init-sudoku-post3/contracts';
 
 const router = Router();
@@ -25,7 +25,7 @@ router.post('/scores', (req: Request, res: Response) => {
     timeToSolve: body.timeToSolve,
   };
 
-  const id = insertScore(score);
+  const id = addScore(score);
   const response: ScoreResponse = { id };
   res.status(201).json(response);
 });

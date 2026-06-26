@@ -2,7 +2,7 @@ import { generatePuzzle } from '../puzzleGenerator';
 import { countSolutions, filledCellCount } from '../utils/sudoku';
 import { PuzzleDifficulty } from '@init-sudoku-post3/contracts';
 
-/** Helper to map difficulty to expected maximum filled cells (minimum clues) */
+/** Helper to map difficulty to expected minimum filled cells (clues) */
 const difficultyMinFilled: Record<PuzzleDifficulty, number> = {
   easy: 36,
   medium: 32,

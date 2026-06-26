@@ -4,10 +4,16 @@ import type { ScoreRequest, LeaderboardEntry, PuzzleDifficulty } from '@init-sud
 
 /**
  * Inserts a new score record into the database.
- * @param score The score data to insert.
- * @returns The generated id of the inserted record.
+ * Accepts either a fully typed ScoreRequest or a loosely typed object with string difficulty.
  */
-export function insertScore(score: ScoreRequest): string {
+export function insertScore(score: ScoreRequest | { playerName: string; difficulty: string; timeToSolve: number }): string {
+  // Cast to ScoreRequest after runtime validation (basic)
+  const validatedScore: ScoreRequest = {
+    playerName: score.playerName,
+    difficulty: score.difficulty as PuzzleDifficulty,
+    timeToSolve: score.timeToSolve,
+  };
+
   const id = uuidv4();
   const stmt = db.prepare(
     `INSERT INTO scores (id, playerName, difficulty, timeToSolve, createdAt)
@@ -15,9 +21,9 @@ export function insertScore(score: ScoreRequest): string {
   );
   stmt.run({
     id,
-    playerName: score.playerName,
-    difficulty: score.difficulty,
-    timeToSolve: score.timeToSolve,
+    playerName: validatedScore.playerName,
+    difficulty: validatedScore.difficulty,
+    timeToSolve: validatedScore.timeToSolve,
     createdAt: new Date().toISOString(),
   });
   return id;

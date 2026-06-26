@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const scores_repository_1 = require("../db/scores-repository");
+const storage_1 = require("../storage");
 const router = (0, express_1.Router)();
 /**
  * POST /scores
@@ -20,7 +20,7 @@ router.post('/scores', (req, res) => {
         difficulty: body.difficulty,
         timeToSolve: body.timeToSolve,
     };
-    const id = (0, scores_repository_1.insertScore)(score);
+    const id = (0, storage_1.addScore)(score);
     const response = { id };
     res.status(201).json(response);
 });

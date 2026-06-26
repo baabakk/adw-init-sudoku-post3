@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { addScore } from '../storage';
-import type { ScoreRequest, ScoreResponse } from '@init-sudoku-post3/contracts';
+import type { ScoreRequest, ScoreResponse, PuzzleDifficulty } from '@init-sudoku-post3/contracts';
 
 const router = Router();
 
@@ -21,7 +21,8 @@ router.post('/scores', (req: Request, res: Response) => {
 
   const score: ScoreRequest = {
     playerName: body.playerName,
-    difficulty: body.difficulty,
+    // Cast after validation
+    difficulty: body.difficulty as PuzzleDifficulty,
     timeToSolve: body.timeToSolve,
   };
 

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const scores_repository_1 = require("../db/scores-repository");
+const storage_1 = require("../storage");
 const router = (0, express_1.Router)();
 /**
  * GET /leaderboard?difficulty=easy|medium|hard
@@ -12,7 +12,7 @@ router.get('/leaderboard', (req, res) => {
     if (!difficulty || !['easy', 'medium', 'hard'].includes(difficulty)) {
         return res.status(400).json({ error: 'Invalid or missing difficulty parameter' });
     }
-    const entries = (0, scores_repository_1.getTopScores)(difficulty);
+    const entries = (0, storage_1.getTopScores)(difficulty);
     const response = { entries };
     res.json(response);
 });
